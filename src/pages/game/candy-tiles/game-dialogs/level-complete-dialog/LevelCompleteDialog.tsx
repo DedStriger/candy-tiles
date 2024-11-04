@@ -59,7 +59,7 @@ const LevelCompleteDialog = () => {
 		<DelayComponent delayMs={500}>
 			<CandyTilesDialog className="max-w-[300px]">
 				<div className="flex flex-col w-full items-center gap-[12px] relative" data-cy="level-complete-dialog">
-					<span className="m-auto font-YellowCandy text-[24px] block text-center text-p-light">Level complete!</span>
+					<span className="m-auto font-Montserrat text-[24px] block text-center text-p-light">Уровень пройден!</span>
 					<div className="w-fit flex gap-x-[20px] justify-center bg-black/25 p-[16px] rounded-lg z-0">
 						<Star id="level-complete-star1" animationDelayMs={200} lit={levelScoreStars.first}></Star>
 						<Star id="level-complete-star2" animationDelayMs={500} lit={levelScoreStars.second}></Star>
@@ -68,15 +68,15 @@ const LevelCompleteDialog = () => {
 
 					<div className="flex items-center gap-x-[10px] bg-black/25 px-[20px] py-[10px] rounded">
 						<FaFlagCheckered className="text-s-light"></FaFlagCheckered>
-						<span id="score-label" className="text-s-main font-YellowCandy text-[18px]">
-							{score} points
+						<span id="score-label" className="text-s-main font-Montserrat text-[18px]">
+							{score} очков
 						</span>
 					</div>
 
 					<RateLevelButtons />
 
 					<div className="flex gap-x-[10px]">
-						<Tooltip title="Play again">
+						<Tooltip title="Повторить">
 							<div>
 								<MenuIconButtonSecondary onClick={onPlayAgainClick}>
 									<MdReplay></MdReplay>
@@ -84,9 +84,9 @@ const LevelCompleteDialog = () => {
 							</div>
 						</Tooltip>
 
-						<Tooltip title={selectedLevel.data?.isMainLevel ? 'Next' : 'More levels'}>
+						<Tooltip title={selectedLevel.data?.isMainLevel ? 'Дальше' : 'Больше уровней'}>
 							<Button variant="contained" color="secondary" disableElevation sx={{ fontWeight: 'bolder' }} onClick={onNextLevelClick}>
-								Next
+								Дальше
 							</Button>
 						</Tooltip>
 					</div>

@@ -23,7 +23,7 @@ const HomePage = () => {
 								startIcon={<MdOutlinePlayCircleFilled size={48} />}
 								onClick={playOnClick}
 							>
-								PLAY
+								Играть
 							</MainButton>
 						</Box>
 					</Stack>

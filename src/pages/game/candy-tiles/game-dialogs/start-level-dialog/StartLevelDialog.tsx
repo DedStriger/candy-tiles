@@ -28,13 +28,13 @@ const StartLevelDialog = () => {
 	return show ? (
 		<CandyTilesDialog>
 			<div className="flex flex-col w-full items-center gap-[12px]" data-cy="start-level-dialog">
-				<span className="m-auto font-YellowCandy text-[24px] text-p-light">Target</span>
+				<span className="m-auto font-Inter text-[24px] text-p-light">Задача</span>
 
 				<div className="flex flex-wrap gap-[12px]">
 					<TargetItem>
 						<div className="flex items-center gap-x-[10px]">
 							<FaFlagCheckered className="text-s-light"></FaFlagCheckered>
-							<span className="text-s-main font-YellowCandy text-[18px]">{targetScore} points</span>
+							<span className="text-s-main font-Inter text-[18px]">{targetScore} очки</span>
 						</div>
 					</TargetItem>
 
@@ -57,7 +57,7 @@ const StartLevelDialog = () => {
 				</div>
 
 				<Button variant="contained" color="secondary" sx={{ fontWeight: 'bold' }} disableElevation onClick={onStartClick}>
-					Start
+					Начать
 				</Button>
 			</div>
 		</CandyTilesDialog>

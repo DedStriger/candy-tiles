@@ -43,7 +43,7 @@ const LevelSelectorPage = () => {
 						indicatorColor="primary"
 						style={{ flexShrink: 0 }}
 					>
-						<Tab label="Main Levels" data-cy="main-levels-tab-button"></Tab>
+						<Tab label="Уровни" data-cy="main-levels-tab-button"></Tab>
 					</Tabs>
 					<SwipeableViews
 						index={selectedTab}

@@ -33,11 +33,11 @@ const Menu = () => {
 
 	return (
 		<div className="bg-black/25 p-[16px] md:p-[12px] rounded-[5px] flex flex-col gap-y-[10px] md:w-min md:mx-auto">
-			<span className="font-YellowCandy text-[16px] text-p-main text-center border-b border-p-main pb-[5px]">
-				{selectedLevel?.isMainLevel ? <span>Level #{selectedLevel?.file.id}</span> : <span>{selectedLevel?.title}</span>}
+			<span className="font-Montserrat text-[16px] text-p-main text-center border-b border-p-main pb-[5px]">
+				{selectedLevel?.isMainLevel ? <span>Уровень #{selectedLevel?.file.id}</span> : <span>{selectedLevel?.title}</span>}
 			</span>
 			<div className="flex justify-between gap-[10px]">
-				<Tooltip title="Go back">
+				<Tooltip title="Назад">
 					<div>
 						<MenuIconButton onClick={homeOnClick} data-cy="left-panel-go-back-button">
 							<FaHome></FaHome>
@@ -45,7 +45,7 @@ const Menu = () => {
 					</div>
 				</Tooltip>
 
-				<Tooltip title="Reset level">
+				<Tooltip title="Перезапустить уровень">
 					<div>
 						<MenuIconButton onClick={resetLevelOnClick} data-cy="left-panel-reset-level-button">
 							<MdReplay></MdReplay>
@@ -53,7 +53,7 @@ const Menu = () => {
 					</div>
 				</Tooltip>
 
-				<Tooltip title="Adjust volume">
+				<Tooltip title="Звук">
 					<div>
 						<MenuIconButton onClick={volumeOnClick} data-cy="left-panel-adjust-volume-button">
 							<MdVolumeUp></MdVolumeUp>
