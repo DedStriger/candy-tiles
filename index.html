@@ -5,8 +5,21 @@
     <link rel="icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Candy Tiles</title>
+    <!-- Yandex.RTB -->
+    <script>window.yaContextCb=window.yaContextCb||[]</script>
+    <script src="https://yandex.ru/ads/system/context.js" async></script>
   </head>
   <body>
+  <!-- Yandex.RTB R-A-12700036-1 -->
+  <script>
+    window.yaContextCb.push(() => {
+      Ya.Context.AdvManager.render({
+        "blockId": "R-A-12700036-1",
+        "type": "fullscreen",
+        "platform": "touch"
+      })
+    })
+  </script>
     <div id="app" class="flex flex-col h-screen"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
