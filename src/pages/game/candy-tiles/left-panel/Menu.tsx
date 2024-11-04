@@ -8,6 +8,7 @@ import useSelectedLevel from '../../../../hooks/useSelectedLevel';
 import { useSetRecoilState } from 'recoil';
 import { showVolumeDialogState } from './../../store/showVolumeDialog';
 import { Tooltip } from '@mui/material';
+import { getLang } from '../../../../utils/get-key-lang';
 
 const Menu = () => {
 	const selectedLevel = useSelectedLevel().data;
@@ -34,10 +35,10 @@ const Menu = () => {
 	return (
 		<div className="bg-black/25 p-[16px] md:p-[12px] rounded-[5px] flex flex-col gap-y-[10px] md:w-min md:mx-auto">
 			<span className="font-Montserrat text-[16px] text-p-main text-center border-b border-p-main pb-[5px]">
-				{selectedLevel?.isMainLevel ? <span>Уровень #{selectedLevel?.file.id}</span> : <span>{selectedLevel?.title}</span>}
+				{selectedLevel?.isMainLevel ? <span>{getLang('level')} #{selectedLevel?.file.id}</span> : <span>{selectedLevel?.title}</span>}
 			</span>
 			<div className="flex justify-between gap-[10px]">
-				<Tooltip title="Назад">
+				<Tooltip title={getLang('back')}>
 					<div>
 						<MenuIconButton onClick={homeOnClick} data-cy="left-panel-go-back-button">
 							<FaHome></FaHome>
@@ -45,7 +46,7 @@ const Menu = () => {
 					</div>
 				</Tooltip>
 
-				<Tooltip title="Перезапустить уровень">
+				<Tooltip title={getLang('reset')}>
 					<div>
 						<MenuIconButton onClick={resetLevelOnClick} data-cy="left-panel-reset-level-button">
 							<MdReplay></MdReplay>
@@ -53,7 +54,7 @@ const Menu = () => {
 					</div>
 				</Tooltip>
 
-				<Tooltip title="Звук">
+				<Tooltip title={getLang('volume')}>
 					<div>
 						<MenuIconButton onClick={volumeOnClick} data-cy="left-panel-adjust-volume-button">
 							<MdVolumeUp></MdVolumeUp>

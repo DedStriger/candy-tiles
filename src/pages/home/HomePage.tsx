@@ -3,6 +3,7 @@ import { MdOutlinePlayCircleFilled } from 'react-icons/md';
 import MainButton from './MainButton';
 import { ReactComponent as Logo } from './../../assets/img/app/text-logo.svg';
 import { useNavigate } from 'react-router-dom';
+import { getLang } from '../../utils/get-key-lang';
 
 const HomePage = () => {
 	const navigate = useNavigate();
@@ -23,7 +24,7 @@ const HomePage = () => {
 								startIcon={<MdOutlinePlayCircleFilled size={48} />}
 								onClick={playOnClick}
 							>
-								Играть
+								{getLang('play')}
 							</MainButton>
 						</Box>
 					</Stack>

@@ -7,6 +7,7 @@ import MainLevelsTab from './main-levels-tab';
 import { grey } from '@mui/material/colors';
 import { selectedTabState } from './store/selectedTab';
 import SwipeableViews from 'react-swipeable-views';
+import { getLang } from '../../utils/get-key-lang';
 
 const animateButtons = () => {
 	anime({
@@ -43,7 +44,7 @@ const LevelSelectorPage = () => {
 						indicatorColor="primary"
 						style={{ flexShrink: 0 }}
 					>
-						<Tab label="Уровни" data-cy="main-levels-tab-button"></Tab>
+						<Tab label={getLang('levels')} data-cy="main-levels-tab-button"></Tab>
 					</Tabs>
 					{/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
 					{/*@ts-ignore*/}

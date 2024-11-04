@@ -9,6 +9,7 @@ import TaskItem from './TaskItems';
 import CandyTilesDialog from '../CandyTilesDialog';
 import useSelectedLevel from '../../../../../hooks/useSelectedLevel';
 import useAudio from '../../../../../hooks/useAudio';
+import { getLang } from '../../../../../utils/get-key-lang';
 
 const StartLevelDialog = () => {
 	const selectedLevel = useSelectedLevel();
@@ -28,13 +29,13 @@ const StartLevelDialog = () => {
 	return show ? (
 		<CandyTilesDialog>
 			<div className="flex flex-col w-full items-center gap-[12px]" data-cy="start-level-dialog">
-				<span className="m-auto font-Inter text-[24px] text-p-light">Задача</span>
+				<span className="m-auto font-Inter text-[24px] text-p-light">{getLang('target')}</span>
 
 				<div className="flex flex-wrap gap-[12px]">
 					<TargetItem>
 						<div className="flex items-center gap-x-[10px]">
 							<FaFlagCheckered className="text-s-light"></FaFlagCheckered>
-							<span className="text-s-main font-Inter text-[18px]">{targetScore} очки</span>
+							<span className="text-s-main font-Inter text-[18px]">{targetScore} {getLang('points')}</span>
 						</div>
 					</TargetItem>
 
@@ -57,7 +58,7 @@ const StartLevelDialog = () => {
 				</div>
 
 				<Button variant="contained" color="secondary" sx={{ fontWeight: 'bold' }} disableElevation onClick={onStartClick}>
-					Начать
+					{getLang('start')}
 				</Button>
 			</div>
 		</CandyTilesDialog>
