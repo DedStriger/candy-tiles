@@ -1,16 +1,14 @@
 import { useMemo, useEffect } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
-import { updateUser } from '../../../api/user';
 import { levelCompleteState } from './store/levelComplete';
 import { levelScoreStarsState } from './store/levelScoreStars';
 import { CompletedLevels, completedLevelsState } from '../../../store/completedLevels';
 import useSelectedLevel from '../../../hooks/useSelectedLevel';
-import useLoggedUser from '../../../hooks/useLoggedUser';
 
 const CompletedLevelUpdater = () => {
 	const [completedLevels, setCompletedLevels] = useRecoilState(completedLevelsState);
 	const selectedLevel = useSelectedLevel();
-	const loggedUser = useLoggedUser();
+
 	const levelId = useMemo(
 		() => (selectedLevel.data?.isMainLevel ? selectedLevel.data.file.id : selectedLevel.data?.id),
 		[selectedLevel.data],
@@ -33,9 +31,8 @@ const CompletedLevelUpdater = () => {
 	};
 
 	const onLevelComplete = () => {
-		const toUpdate = loggedUser ? loggedUser?.profile.completedLevels : completedLevels;
-		const newState = getNewState(toUpdate);
-		loggedUser ? updateUser(loggedUser.auth.id, { completedLevels: newState }) : setCompletedLevels(newState);
+		const newState = getNewState(completedLevels);
+		setCompletedLevels(newState);
 	};
 
 	return <></>;

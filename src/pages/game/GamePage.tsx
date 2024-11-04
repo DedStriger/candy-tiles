@@ -8,7 +8,6 @@ import LevelSkeleton from './LevelSkeleton';
 import VolumeDialog from './VolumeDialog';
 import useToast from '../../hooks/useToast';
 import Header from '../../components/header';
-import { incrementOnlineLevelTimesPlayed } from '../../api/levels';
 import useCompletedLevels from '../../hooks/useCompletedLevels';
 
 type Props = {
@@ -30,9 +29,6 @@ const GamePage = ({ isMainLevel }: Props) => {
 		};
 	}, []);
 
-	useEffect(() => {
-		selectedLevelQuery.data && !selectedLevelQuery.data?.isMainLevel && incrementOnlineLevelTimesPlayed(parseInt(selectedLevelId));
-	}, [selectedLevelQuery.data]);
 
 	useEffect(() => {
 		!!selectedLevelQuery.data && checkLevelAvailability();
@@ -48,7 +44,7 @@ const GamePage = ({ isMainLevel }: Props) => {
 		createToast({ message: 'Level locked', severity: 'error', durationMs: 3000 });
 		navigate('/levels');
 	};
-
+  console.log(selectedLevelQuery)
 	if (selectedLevelQuery.isLoading || selectedLevelQuery.isIdle) return <LevelSkeleton></LevelSkeleton>;
 	if (selectedLevelQuery.error) return <LevelError></LevelError>;
 

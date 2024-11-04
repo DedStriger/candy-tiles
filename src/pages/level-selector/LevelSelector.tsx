@@ -4,13 +4,9 @@ import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import Header from '../../components/header';
 import MainLevelsTab from './main-levels-tab';
-import OnlineLevelsTab from './online-levels-tab';
 import { grey } from '@mui/material/colors';
 import { selectedTabState } from './store/selectedTab';
 import SwipeableViews from 'react-swipeable-views';
-import MyLevelsTab from './my-levels-tab';
-import { supabase } from '../../config/supabase-config';
-import useLoggedUser from '../../hooks/useLoggedUser';
 
 const animateButtons = () => {
 	anime({
@@ -24,14 +20,9 @@ const animateButtons = () => {
 
 const LevelSelectorPage = () => {
 	const [selectedTab, setSelectedTab] = useRecoilState(selectedTabState);
-	const loggedUser = useLoggedUser();
 
 	useEffect(() => {
 		selectedTab === 0 && animateButtons();
-
-		supabase.auth.onAuthStateChange((event) => {
-			event === 'SIGNED_OUT' && selectedTab === 2 && setSelectedTab(1);
-		});
 	}, [selectedTab]);
 
 	const onTabChange = (e: React.SyntheticEvent, newValue: number) => setSelectedTab(newValue);
@@ -53,8 +44,6 @@ const LevelSelectorPage = () => {
 						style={{ flexShrink: 0 }}
 					>
 						<Tab label="Main Levels" data-cy="main-levels-tab-button"></Tab>
-						<Tab label="Online levels" data-cy="online-levels-tab-button"></Tab>
-						{!!loggedUser && <Tab label="My levels" data-cy="my-levels-tab-button"></Tab>}
 					</Tabs>
 					<SwipeableViews
 						index={selectedTab}
@@ -65,14 +54,6 @@ const LevelSelectorPage = () => {
 					>
 						<Box className="overflow-hidden" display={selectedTab === 0 ? 'block' : 'none'}>
 							<MainLevelsTab />
-						</Box>
-
-						<Box className="overflow-hidden" display={selectedTab === 1 ? 'block' : 'none'}>
-							<OnlineLevelsTab />
-						</Box>
-
-						<Box className="overflow-hidden" display={selectedTab === 2 ? 'block' : 'none'}>
-							<MyLevelsTab />
 						</Box>
 					</SwipeableViews>
 				</Stack>
